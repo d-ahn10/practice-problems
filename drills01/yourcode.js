@@ -17,27 +17,25 @@ function sumArray(numArray){
 }
 
 function fitWithinVal(numArr, numGoal){
-
-    // - fitWithinVal: given an array and a number, sum the array until you reach the number. 
-    // keep adding any values that would total below the given value return an array of every number you could 
-    // add For example: 
-	// - input: [1,100,2,4,5,6], 7) 
-    // - return [1,2,4]
-    
-    let output = 0;
-    for(let i = 0; i<numArr.length; i++) {
-        let outerNum = numArr[i];
-        for(let j = 1; j<numArr.length; j++) {
-            let innerNum = numArr[j];
-            let compareSum = outerNum + innerNum;
-            if(compareSum < numGoal){
-                output += compareSum;
-                console.log(output);
-            } else {
-                return 'work done';
-            }
+//storage output list;
+//go through each number in the given numArr;
+//during the iteration, compare if it is less than the numGoal;
+//if yes, then add it to output list
+//if no, then skip num and keep going until there are no more numbers that would fit the conditional
+//print out the storage output list;
+//storage output list;
+    let output = [];
+    var index = 0;
+    let currentSum = 0;
+    while(index < numArr.length){
+        let eachNum = numArr[index];
+        if(currentSum+eachNum < numGoal){
+            currentSum += eachNum;
+            output.push(eachNum);
         }
-    }
+    index++;
+    }    
+    return output;
 }
 
 function getAllNamesShorterThan(){

@@ -38,8 +38,23 @@ function fitWithinVal(numArr, numGoal){
     return output;
 }
 
-function getAllNamesShorterThan(){
+function getAllNamesShorterThan(nameList, lengthValueGoal){
+    //create an empty results output list;
+    //go through list of names one by one;
+    //check the length of each name by comparing it to the number provided in the 2nd argument
+    //if the compared length is shorter than the given value: add the name to the results output list;
+    //if no, keep going until done.
 
+    let results = [];
+
+    for(let index = 0; index < nameList.length; index++){
+        let currentName = nameList[index];
+        let currNameLength = currentName.length;
+        if(currNameLength < lengthValueGoal){
+            results.push(currentName);
+        }
+    }
+    return results;
 }
 
 function makeLabel(){

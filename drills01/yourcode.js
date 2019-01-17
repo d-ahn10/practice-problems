@@ -25,7 +25,7 @@ function fitWithinVal(numArr, numGoal){
 //print out the storage output list;
 //storage output list;
     let output = [];
-    var index = 0;
+    let index = 0;
     let currentSum = 0;
     while(index < numArr.length){
         let eachNum = numArr[index];
@@ -57,6 +57,52 @@ function getAllNamesShorterThan(nameList, lengthValueGoal){
     return results;
 }
 
-function makeLabel(){
+function makeLabel(customerDataObj){
+    // given an object with data for a person in it, generate a shipping label in the following form: 
+    // Miss Jane Doe
+    // 123 Any St
+    // Springfield, Ma 12345 
+    // Please note that the next lines are generated via newlines
 
+    // create a result string;
+    // create variables the save the following info:
+    // greeting, givenName, familyName
+    // \n new line
+    // streetNumber, streetName
+    // \n new line
+    // city, state, zip
+    //concat everything together;
+
+    let result = "";
+
+    let salutations = customerDataObj.greeting;
+    let firstName = customerDataObj.givenName;
+    let familyName = customerDataObj.familyName;
+    let streetNum = customerDataObj["home address"].streetNumber;
+    let streetName = customerDataObj["home address"].streetName;
+    let custCity = customerDataObj["home address"].city;
+    let custState = customerDataObj["home address"].state;
+    let custZip = customerDataObj["home address"].zip;
+
+    return result += salutations + " " + firstName +" "+ familyName + "\n" +streetNum +" "+ streetName + "\n" + custCity +", "+ custState + " " + custZip;
 }
+
+
+// Test call: makeLabel({
+//     "familyName": "McGee",
+//     "givenName": "Chuckles",
+//     "greeting": "Miss.",
+//     "age": 28,
+//     "height": 165,
+//     "colors": {
+//       "eye": "green",
+//       "hair": "green"
+//     },
+//     "home address": {
+//       "streetNumber": "12345",
+//       "streetName": "Any St",
+//       "state": "Mo",
+//       "zip": 63102,
+//       "city": "Kansas City"
+//     }
+//   })
